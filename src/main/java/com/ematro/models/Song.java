@@ -5,6 +5,12 @@ public class Song {
 	private int id;
 	private String title;
 
+	public Song(int id, String title) {
+		super();
+		this.id = id;
+		this.title = title;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -20,5 +26,6 @@ public class Song {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	
 }
