@@ -11,17 +11,49 @@
 </head>
 
 <body>
-	<h1>Best Songs!</h1>
-	
-	<ul>
-		<li th:each="song : ${songs}" th:text="${song.title}"></li>
-	</ul>
-	
-	<div th:if="${ricercaId}">
-	   <span th:text="${songs.id}"></span>
-	   <span th:text="${songs.title}"></span>
+
+	<div th:if="${findSongById}">
+		<div class="conteiner-fluid" style="margin-top: 15%;">
+			<div class="row justify-content-center">
+				<div class="card shadow" style="width: 40%; padding: 15px;">
+					<h1 class="card-title" style="text-align: center;" th:text="${song.title}"></h1>
+					<div style="text-align: center; margin: 25px 0px;">
+						<span th:text="${song.id}" />
+						<span th:text="${song.title}"></span>
+					</div>
+					<br>
+
+					<div class="row justify-content-evenly">
+						<a href="/songs" class="btn btn-primary" style="width: 100px;">Indietro</a>
+						<a href="/" class="btn btn-primary" style="width: 100px;">HOME</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	
+
+	<div th:unless="${findSongById}">
+		<div class="conteiner-fluid" style="margin-top: 15%;">
+			<div class="row justify-content-center">
+				<div class="card shadow" style="width: 40%; padding: 15px;">
+					<h1 class="card-title" style="text-align: center;">Le migliori canzoni disponibili!</h1>
+					<br>
+					<ul>
+						<li th:each="song : ${songs}">
+							<a th:href="${'/songs/' + song.id}">
+								<span th:text="${song.title}"></span>
+							</a>
+						</li>
+					</ul>
+					<br>
+					<div class="row justify-content-center">
+						<a href="./" class="btn btn-primary" style="width: 100px;">HOME</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>

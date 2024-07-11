@@ -1,5 +1,7 @@
 package com.ematro.models;
 
+import java.util.Iterator;
+
 public class Movie {
 
 	private int id;
